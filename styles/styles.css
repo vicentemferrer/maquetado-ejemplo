@@ -22,6 +22,7 @@ main {
 
     display: grid;
     grid-template-columns: auto 1fr auto;
+    justify-items: center;
 }
 
 header {
@@ -132,6 +133,62 @@ section {
     width: 100%;
 }
 
+/* Estilo de la sección del formulario */
+section:has(form) {
+    justify-self: center;
+
+    width: 100%;
+    max-width: 800px;
+    background-color: #f7f7f7;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    margin-block: 2rem;
+}
+
+/* Estilo de los encabezados */
+h2,
+h3 {
+    text-align: center;
+}
+
+/* Estilos para el formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Input fields y textarea adaptables al ancho */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Botón de envío */
+input[type="submit"] {
+    background-color: #000;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    align-self: center;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}
+
 footer {
     display: flex;
     flex-direction: row;
@@ -145,11 +202,86 @@ footer {
 
 .productos {
     padding: 2rem;
+    width: 100%;
 
     display: grid;
-    grid-template-columns: repeat(auto-fill, 400px);
+    grid-template-columns: repeat(auto-fill, 200px);
     justify-items: center;
     align-items: center;
 
     gap: 2rem;
+}
+
+.producto {
+    padding: 2rem;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+
+    gap: 1rem;
+}
+
+.producto h3 {
+    text-align: left;
+}
+
+.producto article {
+    width: 100%;
+}
+
+.precio {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.info table {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.info table tr:not(table:last-child) {
+    border-bottom: 1px solid black;
+}
+
+.info table th {
+    border-right: 1px solid black;
+
+    text-align: left;
+    width: 7ch;
+}
+
+.info table th,
+.info table td {
+    padding: .125rem;
+}
+
+@media (min-width: 768px) {
+    section {
+        padding: 20px;
+    }
+
+    input[type="submit"] {
+        width: 100px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .producto {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .producto h2 {
+        grid-column: 1 / 3;
+
+        width: 100%;
+        text-align: left;
+    }
+
+    .producto picture {
+        grid-row: 2 / 5;
+    }
 }
